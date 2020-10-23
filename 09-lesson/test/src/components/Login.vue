@@ -1,4 +1,7 @@
 <template>
+
+
+
 	<div>
 		<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 		  <el-form-item label="密码" prop="pass">
@@ -91,8 +94,8 @@
       }
     }
 
-	}	
+	}
 </script>
 <style>
-	
+
 </style>

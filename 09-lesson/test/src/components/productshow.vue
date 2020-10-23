@@ -1,50 +1,30 @@
 <template>
 	<div>
-		  <el-table
+
+    <el-button  type="primary" class="bt">
+      <router-link to="/createproduct">添加产品</router-link>
+    </el-button>
+    <el-table
     :data="tableData"
     border
     style="width: 100%">
-    <el-table-column
-      prop="productkey"
-      label="productkey"
+    <el-table-column v-for="(key,index) in key_list"
+      :prop="key"
+      :key="index"
+      :label="key"
       width="180">
-    </el-table-column>
-    <el-table-column
-      prop="productname"
-      label="productname"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="productsecret"
-      label="productsecret">
     </el-table-column>
 	</el-table>
 	</div>
 </template>
 <script>
+  import $ from 'jquery'
 	export default{
 		name:'prouctshow',
 		data(){
 			return{
-
-					tableData:null
-					// [{
-			  //         date: '2016-05-02',
-			  //         name: '王小虎',
-			  //         address: '上海市普陀区金沙江路 1518 弄'
-			  //       }, {
-			  //         date: '2016-05-04',
-			  //         name: '王小虎',
-			  //         address: '上海市普陀区金沙江路 1517 弄'
-			  //       }, {
-			  //         date: '2016-05-01',
-			  //         name: '王小虎',
-			  //         address: '上海市普陀区金沙江路 1519 弄'
-			  //       }, {
-			  //         date: '2016-05-03',
-			  //         name: '王小虎',
-			  //         address: '上海市普陀区金沙江路 1516 弄'
-			  //       }]
+					tableData:null,
+          key_list:[]
 			}
 		},
 		mounted(){
@@ -57,10 +37,15 @@
 					console.log(that.cc.data.data)
 					that.tableData = that.cc.data.data
 				}
+				$.each(that.tableData[0],function (key,value) {
+          that.key_list.push(key)
+        })
 			})
 		}
 	}
 </script>
 <style>
-	
+.bt{
+  float: left;
+}
 </style>

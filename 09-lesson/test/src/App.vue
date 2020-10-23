@@ -1,6 +1,8 @@
 <template>
   <el-container>
-  <el-header style="height:100px">物联网管理平台</el-header>
+  <el-header style="height:60px;padding: 0">
+    <Vheader></Vheader>
+  </el-header>
   <el-container>
     <el-aside width="200px">
       <el-menu
@@ -14,19 +16,19 @@
         <router-link to="/">产品</router-link>
       </span>
       </el-menu-item>
-      
+
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title">
-        <router-link to="/deviceshow">设备</router-link>   
+        <router-link to="/deviceshow">设备</router-link>
       </span>
       </el-menu-item>
-      
-   
+
+
     </el-menu>
     </el-aside>
     <el-container>
-      <el-main>
+      <el-main style="padding: 0">
         <router-view></router-view>
       </el-main>
       <el-footer style="height:30px">Footer</el-footer>
@@ -36,6 +38,7 @@
 </template>
 
 <script>
+  import Vheader from '@/components/Vheader'
 import $ from 'jquery'
 export default {
   name: 'app',
@@ -53,7 +56,7 @@ export default {
       }
   },
   components:{
-  
+  Vheader
   }
 }
 </script>
@@ -85,23 +88,23 @@ export default {
     text-align: center;
     line-height: 200px;
   }
-  
+
   .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 20px;
   }
-  
+
   body > .el-container {
     margin-bottom: 40px;
   }
-  
+
   .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
     line-height: 260px;
   }
-  
+
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
   }
